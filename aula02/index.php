@@ -14,11 +14,19 @@
     // Criando um objeto - instanciando
     $pessoa1 = new Pessoa();
     $pessoa1->nome = "Marcio";
+<<<<<<< HEAD
     $pessoa1->telefone = "(31)97412-5487";
     $pessoa1->fala = true;
     
     echo "<pre>";
     print_r($pessoa1);
+=======
+    // $pessoa1->telefone = "(31)97412-5487";
+    // $pessoa1->fala = true;
+    
+    echo "<pre>";
+    print_r($pessoa1->falar());
+>>>>>>> 9ce37fc1ce31d67f173465b1775162dd7a6347f6
     echo "</pre>";
     ?>
 </body>
