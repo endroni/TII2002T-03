@@ -1,5 +1,12 @@
 <?php
-class ArCondicionado{
+interface Controle{
+    public function Ligar();
+    public function Desligar();
+    public function Aumentar();
+    public function Diminuir();
+}
+
+class ArCondicionado implements Controle{
     private $temperatura;
     private $marca;
     private $modelo;
