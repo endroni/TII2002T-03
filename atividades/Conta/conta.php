@@ -1,11 +1,11 @@
 <?php
 class Conta{
     private $numConta;
-    private $tipo;
-    private $titular;
-    private $saldo;
-    private $status;
-    private $cttps;
+    protected $tipo;
+    protected $titular;
+    protected $saldo;
+    protected $status;
+    protected $cttps;
 
     public function Conta($n, $tipo, $tit, $saldo, $cttps){
         $this->numConta = $n;
@@ -79,7 +79,24 @@ class Conta{
     }
     public function tarifaMensal(){
 
+    }    
+}
+
+class ContaCorrente extends Conta{
+    public function tarifaMensal(){
+        if ($this->tipo === 'cc'){
+            $this->saldo = $this->saldo - 29.9;
+            echo "<p>Novo saldo R$ {$this->getSaldo()}</p>";
+        }        
     }
-    
+}
+
+class ContaPoupanca extends Conta{
+    public function tarifaMensal(){
+        if($this->tipo === 'cp'){
+            $this->saldo = $this->saldo + ($this->saldo * 0.0049);
+            echo "<p>Novo saldo R$ {$this->getSaldo()}</p>";
+        }
+    } 
 }
 ?>
