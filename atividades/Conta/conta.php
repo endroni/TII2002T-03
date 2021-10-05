@@ -1,4 +1,6 @@
 <?php
+    require_once 'titular.php';
+    
 class Conta{
     private $numConta;
     protected $tipo;
