@@ -7,15 +7,13 @@ class Conta{
     protected $titular;
     protected $saldo;
     protected $status;
-    protected $cttps;
 
-    public function Conta($n, $tipo, $tit, $saldo, $cttps){
+    public function Conta($n, $tipo, $tit, $saldo){
         $this->numConta = $n;
         $this->tipo = $tipo;
         $this->titular = $tit;
         $this->saldo = $saldo;
-        $this->status = false;
-        $this->cttps = $cttps;
+        $this->status = false;        
     }
 
     public function getNumConta(){
@@ -37,12 +35,13 @@ class Conta{
         $this->saldo = $valor;
     }
 
-    public function abrirConta(){
+    public function abrirConta($cliente){
+        
         if($this->tipo === 'cp' && $this->saldo >= 50){
             $this->status = true;            
             echo "<p>Conta aberta</p>";
         } elseif($this->tipo === 'cc') {
-            if($this->saldo >= 200 || !empty($this->cttps)){
+            if($this->saldo >= 200 || !empty($cliente->getCttps())){
                 $this->status = true;
                 echo "<p>Conta aberta</p>";
             } else {
@@ -101,4 +100,5 @@ class ContaPoupanca extends Conta{
         }
     } 
 }
+
 ?>
